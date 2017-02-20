@@ -1,0 +1,107 @@
+<div class="row banner">
+  <a routerLink="/dashboard">
+    <img src="assets/images/DOE_banner.png" class="doe_logo">
+   </a>
+</div>
+
+<div style="padding-top:15px;">
+  ASSESSMENTS
+  <ul class="tree" *ngIf="directory">
+    <li>
+      <i class="fa" (click)="toggleDirectoryCollapse(directory)" [ngClass]="{'fa-angle-right': directory.collapsed == true, 'fa-angle-down': directory.collapsed == false}" aria-hidden="true"></i>
+      <a class="folder-item" (click)="toggleSelected(directory)" (dblclick)="toggleDirectoryCollapse(directory)" [ngClass]="{'selected':selectedDirectory.name == directory.name}">
+        <i class="fa fa-folder-o" aria-hidden="true"></i>
+        {{directory.name}}
+      </a>
+    </li>
+    <ul *ngIf="directory.subDirectory && directory.collapsed == false">
+      <li *ngFor="let directory of directory.subDirectory">
+        <i class="fa" (click)="toggleDirectoryCollapse(directory)" [ngClass]="{'fa-angle-right': directory.collapsed == true, 'fa-angle-down': directory.collapsed == false}" aria-hidden="true"></i>
+        <a class="folder-item" (click)="toggleSelected(directory)" (dblclick)="toggleDirectoryCollapse(directory)" [ngClass]="{'selected':selectedDirectory.name == directory.name}">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          {{directory.name}}
+        </a>
+
+        <ul *ngIf="directory.directories && directory.collapsed == false">
+          <li *ngFor="let directory of directory.subDirectory">
+            <i class="fa" (click)="toggleDirectoryCollapse(directory)" [ngClass]="{'fa-angle-right': directory.collapsed == true, 'fa-angle-down': directory.collapsed == false}" aria-hidden="true"></i>
+            <a class="folder-item" (click)="toggleSelected(directory)" (dblclick)="toggleDirectoryCollapse(directory)" [ngClass]="{'selected':selectedDirectory.name == directory.name}">
+              <i class="fa fa-folder-o" aria-hidden="true"></i>
+              {{directory.name}}
+            </a>
+          </li>
+        </ul>
+        <ul *ngIf="directory.psat && directory.collapsed == false">
+          <li *ngFor="let psat of directory.psat">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            {{psat.assessment.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul *ngIf="directory.psat && directory.collapsed == false">
+      <li *ngFor="let psat of directory.psat">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+        {{psat.assessment.name}}
+      </li>
+    </ul>
+  </ul>
+</div>
+
+ <div style="padding-top: 20px;">
+   CALCULATORS
+   <div>
+     <a class="nav-item" routerLink="/calculator">
+       <span class="icon">
+     <i class="fa fa-calculator"></i>
+       </span>Pumps
+     </a>
+   </div>
+   <div>
+     <a class="nav-item" routerLink="/calculator">
+       <span class="icon">
+     <i class="fa fa-calculator"></i>
+       </span>Fans
+     </a>
+   </div>
+   <div>
+     <a class="nav-item" routerLink="/calculator">
+       <span class="icon">
+     <i class="fa fa-calculator"></i>
+       </span>Furnaces
+     </a>
+   </div>
+   <div>
+     <a class="nav-item" routerLink="/calculator">
+       <span class="icon">
+     <i class="fa fa-calculator"></i>
+       </span>Steam
+     </a>
+   </div>
+   <div>
+     <a class="nav-item" routerLink="/calculator">
+       <span class="icon">
+     <i class="fa fa-calculator"></i>
+       </span>Motors
+     </a>
+   </div>
+ </div>
+
+
+<div style="padding-top: 20px;">
+  <div>
+    <a class="nav-item" routerLink="/psat">
+      <span class="icon">
+        <i class="fa fa-wrench"></i>
+      </span>PSAT
+    </a>
+  </div>
+  <div>
+    <a class="nav-item" routerLink="/phast">
+      <span class="icon">
+        <i class="fa fa-wrench"></i>
+      </span>PHAST
+    </a>
+  </div>
+</div>
+
