@@ -1,6 +1,6 @@
 {
   "name": "amo-tools-desktop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "main.js",
   "license": "MIT",
   "description": "AMO-Tools-Desktop",
@@ -45,13 +45,14 @@
     "appId": "com.electron.amo-tools-desktop",
     "copyright": "Copyright 2017 ORNL. All rights reserved.",
     "productName": "AMO-Tools-Desktop",
-    "iconUrl": "https://raw.githubusercontent.com/ORNL-AMO/AMO-Tools-Desktop/blob/develop/src/favicon.ico",
+    "iconUrl": "https://raw.githubusercontent.com/kbeanblossom/autoUpdater/master/src/favicon.ico",
     "directories": {
       "buildResources": "../AMO-Tools-Desktop/src/",
-      "output": "../output/"  
+      "output": "../output/"
     },
     "win": {
-      "target": "squirrel"
+      "target": "squirrel",
+      "icon": "../AMO-Tools-Desktop-autoUpdater/src/favicon-win.ico"
     },
     "windowsSquirrel": {
     "msi": "true"
